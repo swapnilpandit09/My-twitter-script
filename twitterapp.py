@@ -16,10 +16,10 @@ os.chdir(rootPath)
 with open('test.yml', 'r') as ymlfile:
     doc = yaml.load(ymlfile)
     
-consumerKey = doc["Consumer_Key"]
-consumerSecret = doc["Consumer_Secret"]
-accessToken = doc["Access_Token"]
-accessTokenSecret = doc["Access_Token_Secret"]
+CONSUMER_KEY = doc["Consumer_Key"]
+CONSUMER_SECRET = doc["Consumer_Secret"]
+ACCESS_TOKEN = doc["Access_Token"]
+ACCESS_TOKEN_SECRET = doc["Access_Token_Secret"]
 
 if not os.path.exists('user_logs'):
     os.mkdir('user_logs')
@@ -35,12 +35,12 @@ auth = tweepy.OAuthHandler( consumerKey,
                             consumerSecret)
 
 auth.set_access_token(accessToken,
-                     accessTokenSecret)
+                      accessTokenSecret)
 
 api = tweepy.API(auth)
 
 user_tweets = api.user_timeline(args.name , count =  args.count)
 
 for tweet in user_tweets:
-    with open(str(tweet.created_at), 'w+') as filefd:
-        filefd.write(tweet.text.encode('utf-8'))        
+    with open(str(tweet.created_at), 'w+') as fileName:
+        fileName.write(tweet.text.encode('utf-8'))        
