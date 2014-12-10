@@ -9,7 +9,8 @@ parser.add_argument("--name", help="display userId" )
 parser.add_argument("--count", help="Number of twitts")
 args = parser.parse_args()
 
-os.chdir('/home/swapnil')
+rootPath = "/home/swapnil"
+os.chdir(rootPath)
 
 with open('test.yml', 'r') as ymlfile:
     doc = yaml.load(ymlfile)
@@ -22,12 +23,12 @@ accessTokenSecret = doc["Access_Token_Secret"]
 if not os.path.exists('user_logs'):
     os.mkdir('user_logs')
 
-os.chdir( '/home/swapnil/user_logs')
+os.chdir( rootPath + '/user_logs')
 
 if not os.path.exists(args.name):
     os.mkdir(args.name)
 
-os.chdir( '/home/swapnil/user_logs/' + args.name)
+os.chdir( rootPath + '/user_logs/' + args.name)
 
 auth = tweepy.OAuthHandler( consumerKey, 
                             consumerSecret)
