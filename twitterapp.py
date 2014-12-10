@@ -44,7 +44,3 @@ user_tweets = api.user_timeline(args.name , count =  args.count)
 for tweet in user_tweets:
     with open(str(tweet.created_at), 'w+') as filefd:
         filefd.write(tweet.text.encode('utf-8'))        
-
-# 
-#     fileDescriptor = open(str(tweet.created_at) , 'w+')
-#     fileDescriptor.write(tweet.text.encode('utf-8'))
