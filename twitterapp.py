@@ -16,10 +16,10 @@ os.chdir(rootPath)
 with open('test.yml', 'r') as ymlfile:
     doc = yaml.load(ymlfile)
     
-CONSUMER_KEY = doc["Consumer_Key"]
-CONSUMER_SECRET = doc["Consumer_Secret"]
-ACCESS_TOKEN = doc["Access_Token"]
-ACCESS_TOKEN_SECRET = doc["Access_Token_Secret"]
+consumerKey = doc["CONSUMER_KEY"]
+consumerSecret = doc["CONSUMER_SECRET"]
+accessToken = doc["ACCESS_TOKEN"]
+accessTokenSecret = doc["ACCESS_TOKEN_SECRET"]
 
 if not os.path.exists('user_logs'):
     os.mkdir('user_logs')
